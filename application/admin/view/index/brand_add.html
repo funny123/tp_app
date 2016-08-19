@@ -1,0 +1,56 @@
+{layout name="layout" /}
+    <title>添加品牌</title>
+    <style>
+        @charset "utf-8";
+        *{ margin:0; padding:0;border:0;}
+        body{font-family:"Microsoft YaHei",Verdana,Arial,Helvetica,sans-serif;font-size:12px;color:#333;}
+        ul,ol,ul li,ol li,li{list-style: none;}
+        input{font-family:"Microsoft YaHei";}
+        img{ border:none;vertical-align:middle}
+        a{color:#333;display:inline-block;text-decoration:none;outline:none; /*移除虚线框  IE8,FF有用*/ hide-focus: expression(this.hideFocus=true); /*IE6、IE7*/}
+        a:hover{ color:#e42900;text-decoration:none;}
+        a:focus {outline:none;}
+        *, *:before, *:after {box-sizing: inherit;}
+        /*  */
+        form{width: 942px;margin: 30px auto 0px;background: #f4f4f4;border: 1px solid #ccc;padding: 40px 20px;}
+        #Contents form div{display:table; margin-bottom: 20px;}
+        div label{display: inline-block;float: left;width: 110px;text-align: right; margin-right: 10px;height:35px;line-height:35px;font-size: 14px;}
+        div input{float: left;height:35px;line-height:35px;width: 400px;text-indent: 1em;color: #c2c2c2;}
+        div input#btn{height: 30px;line-height: 28px;text-align: center;color: #fff;background: #e40000;border-radius: 4px;width: 100px;text-indent: 0;font-size: 16px;cursor: pointer;margin-left: 120px;}
+    </style>
+</head>
+<body>
+<div class="wrap_right">
+    <div id="Contents">
+    <form action="{:url('brand_add_submit')}" method="post">
+        <div>
+        <div><label for="brand_name">添加品牌</label>
+        <input type="text" id="brand_name" name ="name"/></div>
+            <div><label for="brand_name">品牌编号</label>
+            <input type="text" id="brand_num" name ="brand_num"/></div>
+        <!--            <label for="fstchar">品牌首字母(不区分大小写)</label>-->
+        <input type="hidden" id="fstchar" name ="fstchar"/>
+        </div>
+        <div>
+        <input type="submit" id="btn" value="添加">
+        </div>
+        </form>
+    <!--<script>-->
+    <!--	var str=document.getElementById('brand_name').value;-->
+    <!--	var pinyin = codefans_net_CC2PY(str);-->
+    <!--    var vlu=pinyin.substr(0, 1);-->
+    <!--    $('#fstchar').val(vlu);-->
+    <!--    alert(vlu);-->
+    <!--</script>-->
+        <script>
+            $('#brand_name').blur(function(){
+                var str=$('#brand_name').val();
+                var pinyin = codefans_net_CC2PY(str);
+                $('#fstchar').val(pinyin);
+            });
+        </script>
+    </div>
+</div>
+</body>
+</html>
+

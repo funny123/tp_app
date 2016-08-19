@@ -1,0 +1,60 @@
+{layout name="layout" /}
+<title>添加分类</title>
+<style>
+    @charset "utf-8";
+    *{ margin:0; padding:0;border:0;}
+    body{font-family:"Microsoft YaHei",Verdana,Arial,Helvetica,sans-serif;font-size:12px;color:#333;}
+    ul,ol,ul li,ol li,li{list-style: none;}
+    input{font-family:"Microsoft YaHei";}
+    img{ border:none;vertical-align:middle}
+    a{color:#333;display:inline-block;text-decoration:none;outline:none; /*移除虚线框  IE8,FF有用*/ hide-focus: expression(this.hideFocus=true); /*IE6、IE7*/}
+    a:hover{ color:#e42900;text-decoration:none;}
+    a:focus {outline:none;}
+    *, *:before, *:after {box-sizing: inherit;}
+    /*  */
+    form{width: 942px;margin: 30px auto 0px;background: #f4f4f4;border: 1px solid #ccc;padding: 40px 20px;}
+    #Contents form div{display:table; margin-bottom: 20px;}
+    div select{display:inline-block;height:35px;line-height:35px;width:140px;margin-right:20px;border:1px solid #ccc;text-align: left;padding-left: 20px;}
+    div select option{padding-left: 25px;}
+    div label{display: inline-block;float: left;width: 110px;text-align: right; margin-right: 10px;height:35px;line-height:35px;font-size: 14px;}
+    div input{float: left;height:35px;line-height:35px;width: 400px;text-indent: 1em;color: #c2c2c2;}
+    div textarea#cat_name{height: 100px;width: 380px;padding: 10px;resize:vertical;color: #c2c2c2;}
+    div input#btn{height: 30px;line-height: 28px;text-align: center;color: #fff;background: #e40000;border-radius: 4px;width: 100px;text-indent: 0;font-size: 16px;cursor: pointer;margin-left: 120px;}
+</style>
+</head>
+<body>
+<div class="wrap_right">
+    <div  id="Contents">
+    <form action="{:url('cat_add_submit')}" method="post">
+        <div>
+        <label for="cat_id">分类</label>
+
+        <select name="pid" id="cat_id">
+        <option value="" selected="">顶级分类</option>
+            {volist name="cat_list" id="vo"}
+            <option value="{$vo.id}" selected="">{$vo.name}</option>
+            {/volist}
+    </select>
+        </div>
+        <div>
+        <label for="cat_name">分类名</label>
+        <input type="text" name="name" id="cat_name" >
+        </div>
+        <div>
+            <label for="cat_name">分类编号</label>
+            <input type="text" name="cat_num" id="cat_num" >
+        </div>
+        <div>
+        <input type="submit" id="btn" value="添加">
+        </div>
+        </form>
+
+
+    </div>
+
+
+    </div>
+
+    </body>
+    </html>
+ 

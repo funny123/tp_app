@@ -1,0 +1,62 @@
+{layout name="layout" /}
+<title>添加物流模版</title>
+<style>
+    @charset "utf-8";
+    *{ margin:0; padding:0;border:0;}
+    body{font-family:"Microsoft YaHei",Verdana,Arial,Helvetica,sans-serif;font-size:12px;color:#333;}
+    ul,ol,ul li,ol li,li{list-style: none;}
+    input{font-family:"Microsoft YaHei";}
+    img{ border:none;vertical-align:middle}
+    a{color:#333;display:inline-block;text-decoration:none;outline:none; /*移除虚线框  IE8,FF有用*/ hide-focus: expression(this.hideFocus=true); /*IE6、IE7*/}
+    a:hover{ color:#e42900;text-decoration:none;}
+    a:focus {outline:none;}
+    *, *:before, *:after {box-sizing: inherit;}
+    /*  */
+    form{width: 942px;margin: 30px auto 0px;background: #f4f4f4;border: 1px solid #ccc;padding: 40px 20px;}
+    #Contents form div{display:table; margin-bottom: 20px;}div{margin-bottom: 20px;}
+    div label{display: inline-block;float: left;width: 110px;text-align: right; margin-right: 10px;height:35px;line-height:35px;font-size: 14px;}
+    div input{float: left;height:35px;line-height:35px;width: 400px;text-indent: 1em;color: #c2c2c2;}
+    div input#btn{height: 30px;line-height: 28px;text-align: center;color: #fff;background: #e40000;border-radius: 4px;width: 100px;text-indent: 0;font-size: 16px;cursor: pointer;margin-left: 120px;}
+</style>
+</head>
+<body>
+<div class="wrap_right">
+    <div id="Contents">
+    <form action="{:url('logistic_add_submit')}" method="post">
+        <div>
+        <label for="mb_name">物流模版名</label>
+        <input type="text" id="mb_name" name ="mb_name"/>
+        </div>
+        <div>
+        <label for="cat_id">选择物流类型</label>
+
+        <select name="type" id="cat_id" id="type">
+            {volist name="log_list" id="vo"}
+            {if $vo.id==1}
+            <option value="{$vo.id}" selected="">按商品价格百分比</option>
+            <!--{elseif $vo.id eq 2 /}-->
+            <!--<option value="{$vo.id}" selected="">计件</option>-->
+            {/if}
+            {/volist}
+        <!--<option value="1">按商品总价比例</option>-->
+        <!--            <option value="2">计件</option>-->
+        <!--            <option value="3">按体积</option>-->
+        <!--            <option value="4">按重量</option>-->
+        <!--            <option value="5">包邮</option>-->
+        </select>
+        </div>
+        <div>
+        <label for="percent">比例设置为：</label>
+        <input type="text" id="percent" name ="percent"/>
+        </div>
+        <div>
+            <input type="submit" id="btn" value="添加">
+        </div>
+        </form>
+
+
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,43 @@
+{layout name="layout" /}
+<form method="post" action="{:url('pro_batch_submit')}" enctype="multipart/form-data" class="batch">
+    <input type="hidden" value="add" name="submit">
+    <dl>
+        <dd>
+            <p class="hint">导入程序默认从第二行执行导入，请保留CSV文件第一行的标题行，最大12M</p>
+        </dd>
+    </dl>
+
+    <dl>
+        <dt>文件格式：</dt>
+        <dd>
+            <p>csv文件 <a href="http://www.fuyou021.com/csv/product.csv" target="_blank">商品批量导入模版</a></p>
+        </dd>
+    </dl>
+    <dl>
+        <dt>导入说明：</dt>
+        <dd>
+            <p> 1.如果修改CSV文件请务必使用微软excel软件，且必须保证第一行表头名称含有如下项目: 商品名称、商品价格、商品单位、商品数量、品牌、关键字、宝贝描述、商品详情。<br />
+                2.如果因为淘宝助理版本差异表头名称有出入，请先修改成上述的名称方可导入，不区分全新、二手、闲置等新旧程度，导入后商品类型都是全新。<br />
+                3.如果CSV文件超过12M请通过excel软件编辑拆成多个文件进行导入。 </p>
+        </dd>
+    </dl>
+    <div class="btn">
+        <dl>
+            <dt><em>*</em>请选择文件：</dt>
+            <dd>
+                <input type="file" id='csv' name="csv" value="" />
+            </dd>
+        </dl>
+        <input type="submit" value="提交" >
+    </div>
+
+</form>
+<style>
+  .batch  dl,.batch .btn{display: table;}
+  .batch  dl dd{line-height: 30px;float: left;margin-right: 8px;}
+  .batch  dl dt{float: left;line-height: 30px;}
+  .batch .btn dl{float: left;}
+  .batch div.btn input{width: auto;text-indent: 0;line-height: 0;}
+  .batch  div.btn input[type=file]{margin-top: 8px;}
+  .batch  div.btn input[type=submit]{float: left;width: 80px;border-radius:4px;background: #e40000;color: #fff;font-size: 16px;letter-spacing: 2px;text-align: center;}
+</style>

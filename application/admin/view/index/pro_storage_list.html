@@ -1,0 +1,61 @@
+{layout name="layout" /}
+<title>静态展示页</title>
+<link rel="stylesheet" href="http://www.fuyou021.com/static/css/pro_storage_list.css" />
+</head>
+<div class="wrap_right">
+    <div id="Contents">
+        <div class="wrap">
+            <div class="show_con">
+                <div class="show" style="display:block">
+                    <div>
+                        <select name="cat_id" id="cat_id" value="" name="select"
+                                onchange="window.open(this.options[this.selectedIndex].value,target='_self')">
+                           {volist name="cat_list" id="vo"}
+                            <option value="{:url('pro_storage_list?cat_id=' . $vo.id)}">{$vo.name}</option>
+                               {volist name="sub_cat_list" id="sub_vo"}
+                               {if $vo.id eq $sub_vo.pid}
+                            <option value="{:url('pro_storage_list?cat_id=' . $sub_vo.id)}">&nbsp;&nbsp;|--{$sub_vo.name}</option>
+                               {/if}
+                            {/volist}
+                            {/volist}
+                        </select>
+                    </div>
+                    <p>你当前所选择的分类是：<span></span></p>
+                    <div class="s_top s_list">
+                        <div>图片</div>
+                        <div>商品名</div>
+                        <div>货号</div>
+                        <div>供货港编号</div>
+                        <div>义乌价</div>
+                        <div>服务商价</div>
+                        <div>市场价</div>
+                        <div>是否含税</div>
+                        <div>参数规格</div>
+                        <div>厂家</div>
+                        <div>操作</div>
+                    </div>
+                    <div class="s_tab">
+                        <div class="s_con s_list">
+                            {volist name="storage_list" id="vo"}
+                            <section>
+                            <div><a href="" target="_blank"><img width="200px" height="200px" src="http://www.fuyou021.com/pic/20160816/{$vo.pic}" alt=""></a></div>
+                            <div>{$vo.pro_name}</div>
+                            <div>{$vo.item_number}</div>
+                            <div>{$vo.serial_number}</div>
+                                <div>{$vo.yiwu_price}</div>
+                                <div>{$vo.servicer_price}</div>
+                            <div>{$vo.market_price}</div>
+                            <div>{$vo.tax}</div>
+                            <div>{$vo.parameter}</div>
+                            <div>{$vo.sup_num}</div>
+                            <div><a href="">审核</a></div>
+                            </section>
+                            {/volist}
+                        </div>
+                        <ul class="pagination">
+                            <li class="disabled"><span>{$page}</span></li>
+                        </ul>
+                    </div>
+
+                </body>
+                </html>

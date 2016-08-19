@@ -1,0 +1,28 @@
+<div class="wrap_left" id="frmTitle" name="fmTitle">
+    <div id="Logo"><span>人单合一1</span></div>
+    <script>
+        $(function() {
+            $(".menu_list dd");
+            $(".menu_list dt").click(function(){
+                $(this).toggleClass("open").next().slideToggle("fast");
+            });
+        });
+    </script>
+    <div class="menu_list">
+        <dl>
+            <dt><span>商品库</span></dt>
+            <dd>
+                <a href="{:url('pro_list')}" title="二级分类">商品库列表</a>
+                <a href="{:url('cat_add')}" title="二级分类">分类管理</a>
+                <a href="{:url('brand_add')}" title="二级分类">品牌管理</a>
+                <a href="{:url('supplier_add')}" title="二级分类">供应商管理</a>
+                <a href="{:url('logistic_add')}" title="二级分类">物流模板</a>
+                <a href="{:url('pro_add')}" title="二级分类">商品添加</a>
+                <a href="{:url('pro_batch')}" title="二级分类">商品批量导入</a>
+                <a href="{:url('pro_storage_list')}" title="二级分类">仓库中的商品</a>
+            </dd>
+        </dl>
+    </div>
+</div>
+<!-- /wrap_left -->
+<div class="picBox" onclick="switchSysBar()" id="switchPoint"></div>
